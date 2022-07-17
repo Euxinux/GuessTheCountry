@@ -43,7 +43,7 @@ while play_again:
         yes_or_no = input("Do you want change your country to guess (Yes or No)? : ").lower()
         if yes_or_no in ["yes", "y"]:
             random_country = draw_random_country(file)
-            display_word(random_country,array_letters)
+            display_word(random_country, array_letters)
         elif yes_or_no in ["no", "n"]:
             user_accept = True
         else:
@@ -78,21 +78,18 @@ while play_again:
         # Condition - compare two word user and word to guess
         if set(random_country.replace(" ", "")).issubset(array_letters):
             print("You won! Congratulations! Your word is: %s" % random_country)
-            number_of_tries = 0
+            break
     user_accept = False
     # Condition - play again ?
     if number_of_tries == 0:
         print("You lost all your lives. Your country was: " + random_country)
-        while not user_accept:
-            play_again_choice = input("You want play again (Yes or No)?: ").lower()
-            if play_again_choice in ["yes", "y"]:
-                break
-            elif play_again_choice in ["no", "n"]:
-                play_again = False
-                break
-            else:
-                print("Wrong choice. Try again.")
-                continue
-
-
-
+    while not user_accept:
+        play_again_choice = input("You want play again (Yes or No)?: ").lower()
+        if play_again_choice in ["yes", "y"]:
+            break
+        elif play_again_choice in ["no", "n"]:
+            play_again = False
+            break
+        else:
+            print("Wrong choice. Try again.")
+            continue
